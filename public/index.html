@@ -1,0 +1,60 @@
+<!DOCTYPE>
+<html ng-app='myApp'> <!--ng - app Angular js format keys -->
+<head>
+<style>
+  body{
+    background-image: url("pattern3.jpg");
+  }
+</style>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> <!--CSS link used for fonts -->
+<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Expanded|Gloria+Hallelujah|Pacifico|Shadows+Into+Light" rel="stylesheet">
+<script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script> <!--pulling out the source of angularjs from the link-->
+  <title>Contact List App</title><!--used to write the title name-->
+</head>
+<body>
+    <div class="container" ng-controller="AppCtrl"> <!--Moves in middle -->
+      <h1 class="titleh" style="font-family: 'Pacifico', cursive;text-align:center;">Contact List App </h1> <!-- header-->
+
+      <table class="table"> <!--Creates the table format-->
+          <thead><!-- tag in which we make header elements-->
+              <tr style="font-family: 'Shadows Into Light', cursive;font-size:28px;">
+                  <th>Name</th> <!-- header-->
+                  <th>Email</th>
+                  <th>Number</th>
+                  <th>Current City</th>
+                  <th>&nbsp;</th>
+              </tr> <!-- Triple rainbow-->
+          </thead>
+          <tbody>
+            <tr>
+                <td><input class = "form-control" ng-model = "contact.name" required></td>
+                <td><input class = "form-control" ng-model = "contact.email" required></td>
+                <td><input class = "form-control" ng-model = "contact.number" required></td>
+                <td><input class = "form-control" ng-model = "contact.city"></td>
+                <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+                <td><button class="btn btn-info" ng-click="update()">Update</button></td> &nbsp;&nbsp;
+                <td><button class="btn btn-info" ng-click="deselect()">Clear</button></td> <!--when button is clicked, it will call button function-->
+            </tr>
+            <tr ng-repeat ="contact in contactlist" style="font-family: 'Encode Sans Semi Expanded', sans-serif;">
+              <td>{{contact.name}}</td>
+              <td>{{contact.email}}</td>
+              <td>{{contact.number}}</td>
+              <td>{{contact.city}}</td>
+              <td><button class="btn btn-danger" ng-click="remove(contact._id)">Remove</button></td>
+              <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button></td>
+
+            </tr>
+          </tbody>
+      </table>
+
+    </div>
+
+
+<script src="controllers\controllers.js"></script>
+<footer style="margin-top:50%;text-align:center;font-family: 'Encode Sans Semi Expanded', sans-serif;">Desgined with <span style="color:red;"class="glyphicon glyphicon-heart"></span> by Sai Swaroop | MEAN Stack Developer</footer>
+</body>
+</html>
